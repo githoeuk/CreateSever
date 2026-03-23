@@ -13,4 +13,12 @@ public class Member {
     private String email;
     private int age;
 
+    // 생성자 직접 생성도 가능
+
+    public Member(String name, String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
 } // end of class
