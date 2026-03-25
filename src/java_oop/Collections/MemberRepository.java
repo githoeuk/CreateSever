@@ -36,6 +36,11 @@ public class MemberRepository {
     // ID로 회원 조회
     // ID로 회원 조회 - 1(입력) --> 반환 (Member)
     public Member findById(int id) {
+
+        if(memberMap.get(id).equals(null)){
+            System.out.println("아이디가 존재하지 않거나 틀렸습니다");
+        }
+
         return memberMap.get(id);
     } // findById
 
@@ -66,24 +71,6 @@ public class MemberRepository {
     } // end of count
 
     // 회원 ID번호로 삭제
-
-//        public boolean delete(int id) {
-//        // 조회 후 삭제
-//        Member member = memberMap.get(id);
-//        if (member == null) {
-//            System.out.println("존재하지 않는 회원입니다. ID : " + id);
-//            return false;
-//        } // end of if
-//        // list, map, set - 동기화 처리 중요
-//        memberList.remove(id);
-//        memberMap.remove(id);
-//        emailSet.remove(member.getEmail());
-//
-//        System.out.println("정상적으로 삭제되었습니다" + member.getEmail());
-//        return true;
-//
-//    } // end of deletes
-
     public boolean delete(int id) {
         // 조회 후 삭제
         Member member = memberMap.get(id);
