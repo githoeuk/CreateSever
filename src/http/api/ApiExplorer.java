@@ -25,43 +25,12 @@ public class ApiExplorer {
 
         URL url = new URL(urlBuilder.toString());
 
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Content-type", "application/json");
-        System.out.println("Response code: " + conn.getResponseCode());
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("Content-type", "application/json");
+        System.out.println("Response code: " + connection.getResponseCode());
 
         // 2. 받은 파일 읽기
-
-        BufferedReader rd;
-        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        } else {
-            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-        }
-
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            sb.append(line);
-        }
-
-        rd.close();
-        conn.disconnect();
-
-        // 3. 객체 변환
-
-        String jsonString = sb.toString();
-
-        System.out.println("json 응답 : \n" + sb);
-
-        Gson gson = new Gson();
-        Dto dto = gson.fromJson(jsonString,Dto.class);
-        System.out.println("-- 객체 변환 확인 --");
-        System.out.println(dto.toString());
-
-    } // end of main
-
-    public void reader(HttpURLConnection connection){
 
         BufferedReader rd;
         if(connection.getResponseCode() >= 200 && connection.getResponseCode() <= 300) {
@@ -75,11 +44,21 @@ public class ApiExplorer {
         while ((line = rd.readLine()) != null) {
             sb.append(line);
         }
+        String jsonString = sb.toString();
 
         rd.close();
         connection.disconnect();
 
-    } // end of reader
+        // 3. 객체 변환
+
+        System.out.println("json 응답 : \n" + jsonString);
+
+        Gson gson = new Gson();
+        Dto dto = gson.fromJson(jsonString,Dto.class);
+        System.out.println("-- 객체 변환 확인 --");
+        System.out.println(dto.toString());
+
+    } // end of main
 
 } // end if ApiExplorer
 
