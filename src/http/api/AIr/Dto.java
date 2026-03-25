@@ -1,4 +1,4 @@
-package http.api;
+package http.api.AIr;
 
 import lombok.Data;
 

@@ -10,37 +10,36 @@ import lombok.NoArgsConstructor;
 
 public class User {
 
-    int id;
-    String name;
-    String email;
-    Address address;
-    //Address address = new Address();
-    String phone;
-    String website;
-    Company company;
-    //Company company = new Company();
+    private int id;
+    private String name;
+    private String email;
+    private Address address;
+    private String phone;
+    private String website;
+    private Company company;
+
 
     @Data
-    class Address {
-        String street;
-        String suite;
-        String city;
-        String zipCode;
-        Geo geo = new Geo();
+    static class Address {
+        private String street;
+        private String suite;
+        private String city;
+        private String zipCode;
+        private Geo geo;
 
         @Data
-        class Geo {
-            String lat;
-            String lng;
+        static class Geo {
+            private String lat;
+            private String lng;
         }
-    }
+    } // end of Address
 
     @Data
-    class Company {
-        String name;
-        String catchPhrase;
-        String bs;
-    }
+    static class Company {
+        private String name;
+        private String catchPhrase;
+        private String bs;
+    } // end of Company
 
 } // end of User
 

@@ -1,4 +1,15 @@
 package http.toJson;
 
-public class GeoEx {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class GeoEx{
+
+    String lat;
+    String lng;
+
 }

@@ -1,6 +1,7 @@
 package http.api;
 
 import com.google.gson.Gson;
+import http.api.AIr.Dto;
 
 import java.io.BufferedReader;
 import java.io.IOException;

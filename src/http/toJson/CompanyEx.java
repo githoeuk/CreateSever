@@ -1,4 +1,10 @@
 package http.toJson;
 
-public class CompanyEx {
+import lombok.Data;
+
+@Data
+class CompanyEx {
+    String name;
+    String catchPhrase;
+    String bs;
 }

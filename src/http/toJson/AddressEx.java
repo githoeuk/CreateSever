@@ -1,4 +1,12 @@
 package http.toJson;
 
-public class AddressEx {
+import lombok.Data;
+
+@Data
+class AddressEx {
+    String street;
+    String suite;
+    String city;
+    String zipCode;
+    GeoEx geo;
 }
