@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 public class ToJsonUser2 {
 
+    // 외부 DTO
     public static void main(String[] args) {
 
         User2 user = new User2();
