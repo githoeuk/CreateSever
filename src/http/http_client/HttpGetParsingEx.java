@@ -31,6 +31,7 @@ public class HttpGetParsingEx {
 
             // 4. 응답 내용 확인 (로깅) -> HTTP 응답 메세지가 들어 옴
             System.out.println("response : " + response);
+            System.out.println("response : " + response);
             System.out.println("response : " + response.body());
 
             // 5. 파싱 처리 하기.
